@@ -1,0 +1,38 @@
+<h1>Add new Category</h1>
+
+<form [formGroup]="CategoryForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Category ID</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="ID">
+    </div>
+    <span class="text-danger" *ngIf="ID.invalid && formDir.submitted">
+      Id is required.
+    </span>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Category title</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="Title">
+    </div>
+    <span class="text-danger" *ngIf="Title.invalid && formDir.submitted">
+      Title is required.
+    </span>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Status</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="Status">
+    </div>
+    <span class="text-danger" *ngIf="Status.invalid && formDir.submitted">
+      Status is required.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>
